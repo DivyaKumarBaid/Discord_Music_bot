@@ -49,7 +49,7 @@ This is a discord bot made using the lastest discord.py api as of march 2021. Th
   clear            This command clears given number of messages and by default it clears last 5 messages
   clear_playlist   This command removes every available mp3 file
   join             This adds bot to the given channel and by default in General
-  play             This command plays song from the available ones.Providing channel would let the bot t=run there else by default it will run in General
+  play             This command plays song from the available ones.Providing channel would let the bot run there else by default it will run in General
   remove           This command removes the specified .mp3 file
   songs            This command lists all the songs available to play
   stop             This stops the music playing and the bot leaves the voice channel
