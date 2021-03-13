@@ -1,7 +1,6 @@
 # Discord_Music_bot
 <p align="left">
-<a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/blob/main/LICENSE" alt="Lisence"><img src="https://img.shields.io/github/license/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/issues" alt="Issues"><img src="https://img.shields.io/github/issues/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://twitter.com/DivyakumarBaid1?s=09" alt="Twiter-Follow"><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FDivyaKumarBaid%2FDiscord_Music_bot
-"></a>
+<a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/blob/main/LICENSE" alt="Lisence"><img src="https://img.shields.io/github/license/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/issues" alt="Issues"><img src="https://img.shields.io/github/issues/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://twitter.com/DivyakumarBaid1?s=09" alt="Twiter-Follow"><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FDivyaKumarBaid%2FDiscord_Music_bot"></a>
 </p>
 
 # DISCORD-MUSIC-BOT
