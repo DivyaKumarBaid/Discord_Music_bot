@@ -201,6 +201,16 @@ async def clear_playlist(ctx):
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
     await ctx.send(f'Cleared last {amount} texts')
+    
+#checks for errors
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send('Invalid Command Used. Type //help to know the commands'
+                       )
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send(
+            'Give proper values to the command an argument is missing')
 
 keep_alive() #this keeps the bot alive
 
