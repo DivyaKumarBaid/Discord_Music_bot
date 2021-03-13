@@ -44,7 +44,7 @@ This is a discord bot made using the lastest discord.py api as of march 2021. Th
 
 ## Commands
 
-```python
+```
   add              This adds a music to the playlist. The url must be of youtube
   clear            This command clears given number of messages and by default it clears last 5 messages
   clear_playlist   This command removes every available mp3 file
