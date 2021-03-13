@@ -1,22 +1,52 @@
 # Discord_Music_bot
+<p align="left">
+<a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/blob/main/LICENSE" alt="Lisence"><img src="https://img.shields.io/github/license/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://github.com/DivyaKumarBaid/Discord_Music_bot/issues" alt="Issues"><img src="https://img.shields.io/github/issues/DivyaKumarBaid/Discord_Music_bot"></a> <a href="https://twitter.com/DivyakumarBaid1?s=09" alt="Twiter-Follow"><img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FDivyaKumarBaid%2FDiscord_Music_bot
+"></a>
+</p>
 
-pre-requirements:
+# DISCORD-MUSIC-BOT
 
-PyNaCl FFmpeg discord.py
-I have been using repl package installer to install these files
-rest refer to google to install these packages
+To run this bot we need to several packages such as PyNaCl, discord.py
 
-Pretext:
+## Installation
 
-This is a discord bot made using the lastest discord.py api as of march 2021. This bot plays mp3 file from the storage i.e. all the mp3 files available to play from the file of your bot. I did this program in python language and have used discord.py , youtube_dl , PyNaCl , FFmpeg and several other packages and api's. Initially this bot was biuld on repl.it IDE and can run for infinite time i.e. it will be online continuously.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) \
+To install discord.py
 
-Logic:
+```bash
+python3 -m pip install -U discord.py
+```
+To install PyNaCl
+```bash
+pip install pynacl
+```
+To install youtube_dl
+```bash
+pip install youtube_dl
+```
+You also need to install [FFmpeg](https://www.ffmpeg.org/) 
 
-This bot uses url of youtube to download the song in mp3  format and then play in specified voice channel of your server for 24/7 be it a single song or a playlist it will download and loop thorugh different songs available as download. There is a funtion that runs continuously and is triggered by a user command and we can specify in which channel to play or else by default it will play it on General channel. I have added a method to deal with errors and probably wont create a problem.
-We have several commands that I would list down
+## Pre-Text:
 
-Commands:
+This is a discord bot made using the lastest discord.py api as of march 2021. This bot plays mp3 file from the storage i.e. all the mp3 files available to play from the file of your bot. I did this program in python language and have used discord.py , youtube_dl , PyNaCl , FFmpeg and several other packages and api's. Initially this bot was build on repl.it IDE and can run for infinite time i.e. it will be online continuously using [Uptimerobot](https://uptimerobot.com/)
 
+## How to Install
+
+1. Create a ```python``` virtual environment.I did in repl.it
+2. Clone the repo ```git clone https://github.com/DivyaKumarBaid/Discord_Music_bot.git``` or download the repository.
+3. Go to the cloned/downloaded directory ``` cd Discord_Music_bot ``` 
+4. Upload it in ```repl.it```
+5. Create a bot in [discord developers portal]((https://discord.com/developers/docs/game-and-server-management/vanity-perks))
+6. Copy the ``Token`` of the bot and paste it in the ``.env`` file as ``TOKEN``
+7. Run the bot on ```repl.it```
+8. Copy the ``url`` that appears on the right side of window
+9. Go to [Uptimerobot](https://uptimerobot.com/) and create a monitor and paste the copied ``url`` and start the monitor.This will keep the bot alive even after you close it.
+
+     For more precise steps have a look at [FreeCodeCamp](https://www.freecodecamp.org/news/create-a-discord-bot-with-python/)
+
+## Commands
+
+```python
   add              This adds a music to the playlist. The url must be of youtube
   clear            This command clears given number of messages and by default it clears last 5 messages
   clear_playlist   This command removes every available mp3 file
@@ -25,36 +55,12 @@ Commands:
   remove           This command removes the specified .mp3 file
   songs            This command lists all the songs available to play
   stop             This stops the music playing and the bot leaves the voice channel
-  
-  Silent features:
-  I have used embeded texts and auto delete message for bots message on playing a song.We can also use permission for commands using @commands.has_permissions(#parameters)
-  
-  Steps to use my code :
-  1.) login into discords developers portal (https://discord.com/developers/docs/game-and-server-management/vanity-perks) and add a new application 
-  2.) create a bot
-  3.) head to oauth2 and click on bot under scope and administrator under bot permission.This would give your bot administrator right
-  4.) copy the link given in OAuth2 above the bots permission
-  5.) paste the link in browser to add the bot to your server
-  6.) now head to repl.ot
-  7.) create an account and start a new project wiht python as language
-  8.)  Click on the three dot button and upload my file there 
-            OR 
-       Copy the main.py code from mine to the repl's one
-       Create an .env file in the same directory as the main file is in and copy the code
-       Create a keep_alive.py file and copy my code
-  
- 9.)  Now again go to the bot section in discord developers portal and Copy the token that is in the bot section
- 10.) Paste the toke in the .env file as TOKEN= ##copiedtoken
- 11.) Now run the code
-  
-     This will show up a web page on the right hand side of the, copy the url
-     
- 12.) Head to Uptimerobot (https://uptimerobot.com/) wesite to use it as a monitor to ping your bot to keep it alive
- 13.) create a monitor giving the https.// address copied from repl there and start monitor
-       
-       NOW YOUR BOT WILL BE RUNNING FINE AND CONTINUOUSLY
-       
- I WOULD WELCOME ANY IMPROVEMENT TO THE BOT AND WILL DEFINATELY UPDATE IT IN THE UPCOMING TIME.
- 
- TO KNOW MORE PRECISELY THE WAY TO CREATE BOT I WOULD SUGGEST YOU TO GO THROUGH https://www.freecodecamp.org/news/create-a-discord-bot-with-python/
- 
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
