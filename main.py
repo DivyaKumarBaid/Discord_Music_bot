@@ -32,7 +32,7 @@ async def play_song(ctx, ch, channel, n):
       )
       text.set_author(name= "Discord_music_bot",
       icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-      text.set_footer(text= ".help to know commands")
+      text.set_footer(text= "_help to know commands")
       await ctx.send(embed=text, delete_after=10.0)
       song_played.append(str(file))
   if len(song_played) == n:
@@ -43,6 +43,9 @@ async def play_song(ctx, ch, channel, n):
 @client.event
 async def on_ready():
   print("I am alive")
+  await client.change_presence(
+        status=discord.Status.online,
+        activity=discord.Game('Music.To know more type **_help**'))
 
 #play command to start an infinite loop
 
@@ -73,7 +76,7 @@ async def play(ctx, channel='General'):
     )
     text.set_author(name= "Discord_Music_bot",
     icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-    text.set_footer(text= ".help to know commands")
+    text.set_footer(text= "_help to know commands")
     await ctx.send(embed=text)
     
 
@@ -88,7 +91,7 @@ async def add(ctx, urllink :str):
   )
   text.set_author(name= "Discord_music_bot" ,
   icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-  text.set_footer(text= ".help to know commands")
+  text.set_footer(text= "_help to know commands")
   await ctx.send(embed=text)
 
   ydl_opts = {
@@ -113,7 +116,7 @@ async def add(ctx, urllink :str):
       )
       text.set_author(name= "Discord_music_bot",
       icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-      text.set_footer(text= ".help to know commands")
+      text.set_footer(text= "_help to know commands")
       await ctx.send(embed=text)
   except :
     await ctx.send("Error")
@@ -131,7 +134,7 @@ async def join(ctx, channel='General'):
       )
       text.set_author(name= "Discord_music_bot",
       icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-      text.set_footer(text= ".help to know commands")
+      text.set_footer(text= "_help to know commands")
       await ctx.send(embed=text)
     else:
       await ctx.voice_client.disconnect()
@@ -159,7 +162,7 @@ async def songs(ctx):
       )
       text.set_author(name= "Discord_music_bot",
       icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
-      text.set_footer(text= ".help to know commands")
+      text.set_footer(text= "_help to know commands")
       await ctx.send(embed=text)
       s=s+1
   if s==0:
