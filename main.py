@@ -47,8 +47,23 @@ async def on_ready():
         status=discord.Status.online,
         activity=discord.Game('Music.To know more type **_help**'))
 
+#sets volume
+@client.command()
+async def volume(ctx, x: float):
+  vc = discord.utils.get(client.voice_clients, guild=ctx.guild)
+  vc.source = discord.PCMVolumeTransformer(vc.source)
+  vc.source.volume = x
+  text = discord.Embed(
+  title= "**Playing**",
+  description = f" Volume set to {x} ",
+  color= 53380,
+  )
+  text.set_author(name= "Discord_music_bot",
+  icon_url= "https://static.vecteezy.com/system/resources/thumbnails/000/371/212/small/1781.jpg")
+  text.set_footer(text= "_help to know commands")
+  await ctx.send(embed=text)
+  
 #play command to start an infinite loop
-
 @client.command(help="Channel name is optional." , brief="This command plays song from the available ones.Providing channel name is optional without which it will play on General")
 async def play(ctx, channel='General'):
   voice = discord.utils.get(client.voice_clients, guild=ctx.guild) 
