@@ -19,7 +19,7 @@ song_played=[]
 
 
 #infinite loop to play music 24X7 untill closed/stopped
-@tasks.loop(seconds=10)
+@tasks.loop(seconds=20)
 async def play_song(ctx, ch, channel, n):
   voice = discord.utils.get(client.voice_clients, guild=ctx.guild) 
   for file in os.listdir("./"):
@@ -42,10 +42,10 @@ async def play_song(ctx, ch, channel, n):
 #when bot is ready
 @client.event
 async def on_ready():
-  print("I am alive")
+  print("Alright Ready to Play")
   await client.change_presence(
         status=discord.Status.online,
-        activity=discord.Game('Music.To know more type **_help**'))
+        activity=discord.Game('Music Bot By Divya Kumar Baid.To know more type **_help**'))
 
 #sets volume
 @client.command()
