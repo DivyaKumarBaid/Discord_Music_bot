@@ -26,7 +26,7 @@ async def play_song(ctx, ch, channel, n):
     if file.endswith(".mp3") and not ch.is_playing() and file not in song_played and not voice == None :
       ch.play(discord.FFmpegPCMAudio(file), after=lambda e: print('done', e))
       text = discord.Embed(
-      title= "**Playing**",
+      title= "`Playing`",
       description = f" Playing {file} ",
       color= 53380,
       )
@@ -45,7 +45,7 @@ async def on_ready():
   print("Alright Ready to Play")
   await client.change_presence(
         status=discord.Status.online,
-        activity=discord.Game('Music Bot By Divya Kumar Baid.To know more type **_help**'))
+        activity=discord.Game('Music Bot By Divya Kumar Baid.To know more type `_help`'))
 
 #sets volume
 @client.command()
@@ -54,7 +54,7 @@ async def volume(ctx, x: float):
   vc.source = discord.PCMVolumeTransformer(vc.source)
   vc.source.volume = x
   text = discord.Embed(
-  title= "**Playing**",
+  title= "`Playing`",
   description = f" Volume set to {x} ",
   color= 53380,
   )
@@ -70,11 +70,11 @@ async def play(ctx, channel='General'):
   #channel is the desired channel
   channel = discord.utils.get(ctx.guild.voice_channels, name=channel)
   if voice == None:
-    await ctx.send(f"Joined **{channel}**")
+    await ctx.send(f"Joined `{channel}`")
   else:
     await ctx.voice_client.disconnect()
   ch = await channel.connect()
-  await ctx.send(f"Playing on **{channel}** Channel")
+  await ctx.send(f"Playing on `{channel}` Channel")
   
   #get the number of songs and if none is present it will show up a message
   n=0
@@ -85,7 +85,7 @@ async def play(ctx, channel='General'):
     play_song.start(ctx, ch, channel, n)
   else:
     text = discord.Embed(
-    title= "**No Music**",
+    title= "`No Music`",
     description = "There is no music to play\nUse _add [url] to add a music",
     color= 53380,
     )
@@ -101,7 +101,7 @@ async def play(ctx, channel='General'):
 async def add(ctx, urllink :str):
 
   text = discord.Embed(
-  description = f"**Searching and loading the song.\nThis might take a few seconds depending the number and size of song**",
+  description = f"`Searching and loading the song.\nThis might take a few seconds depending the number and size of song`",
   color= 53380,
   )
   text.set_author(name= "Discord_music_bot" ,
@@ -124,7 +124,7 @@ async def add(ctx, urllink :str):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
       ydl.download([urllink])
       text = discord.Embed(
-      title= "**Song Added**",
+      title= "`Song Added`",
       url= urllink,
       description = "Song is added to the Queue",
       color= 53380,
@@ -144,7 +144,7 @@ async def join(ctx, channel='General'):
     channel = discord.utils.get(ctx.guild.voice_channels, name=channel)
     if voice == None:
       text = discord.Embed(
-      description = f"Joined **{channel}**",
+      description = f"Joined `{channel}`",
       color= 53380,
       )
       text.set_author(name= "Discord_music_bot",
