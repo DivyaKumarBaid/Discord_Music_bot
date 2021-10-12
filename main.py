@@ -8,7 +8,7 @@ import discord.utils
 from discord.ext import commands, tasks
 from itertools import cycle
 from replit import db
-from lyricsapi import *
+from lyrics import *
 
 
 GeniusAPI = GeniusAPI()
