@@ -3,7 +3,7 @@ import os
 
 
 class GeniusAPI:
-    def __init__(self, api_key = 'eVcYRzRSIyZGt6L7xqmg_mb2SS8Wr-5bR0VKaRmTDc3tMu3IxHgjcSH-FiiesynKDJdAD0km-XRP2ikcopEpMg'):
+    def __init__(self, api_key):
         self.api_key = api_key
         self.genius = lyricsgenius.Genius(self.api_key)
 
