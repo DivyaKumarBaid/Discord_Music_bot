@@ -8,6 +8,12 @@ import discord.utils
 from discord.ext import commands, tasks
 from itertools import cycle
 from replit import db
+from lyricsapi import *
+
+
+GeniusAPI = GeniusAPI()
+
+
 
 
 client = commands.Bot(command_prefix='_')
@@ -184,7 +190,7 @@ async def songs(ctx):
     await ctx.send("There is no song")
 
 #remove song
-@client.command(help='The file name should be wiht mp3 extension' , brief='This command removes the specified file')
+@client.command(help='The file name should be with mp3 extension' , brief='This command removes the specified file')
 async def remove(ctx, *,name: str):
   song_there=os.path.isfile(name)
   try:
@@ -197,7 +203,7 @@ async def remove(ctx, *,name: str):
     await ctx.send("Still Playing")
 
 #removes every song
-@client.command(help='The file name should be wiht mp3 extension' , brief='This command removes every0 available song')
+@client.command(help='The file name should be with mp3 extension' , brief='This command removes every0 available song')
 async def clear_playlist(ctx):
   b=True
   for file in os.listdir("./"):
@@ -231,6 +237,20 @@ async def on_command_error(ctx, error):
             'Give proper values to the command an argument is missing')
 
 keep_alive() #this keeps the bot alive
+
+
+@client.command()
+async def lyrics(ctx):
+  file_name = get_current_song()
+  lyrics = GeniusAPI.get_lyrics(song= file_name)
+
+  embed = discord.Embed(
+    title = f"{file_name}",
+    description = f"Lyrics by Genius™️\n```{lyrics}```"
+  )
+  await ctx.send(embed=embed)
+
+
 
 #runs bot
 client.run(os.getenv('TOKEN'))
