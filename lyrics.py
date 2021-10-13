@@ -27,6 +27,9 @@ def get_current_song():
         if file.endswith('.mp3'):
             return file.split('.mp3')[0]
 
+def get_song_list():
+    return [file.split('.mp3')[0] for file in os.listdir('./') if file.endswith('.mp3')]
+    
 
 
 
