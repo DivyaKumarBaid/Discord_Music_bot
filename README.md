@@ -23,6 +23,7 @@ To install youtube_dl
 pip install youtube_dl
 ```
 You also need to install [FFmpeg](https://www.ffmpeg.org/) 
+API key for song lyrics should be acquired from [Genius](https://docs.genius.com/)
 
 ## Pre-Text:
 
@@ -53,6 +54,7 @@ This is a discord bot made using the lastest discord.py api as of march 2021. Th
   remove           This command removes the specified .mp3 file
   songs            This command lists all the songs available to play
   stop             This stops the music playing and the bot leaves the voice channel
+  lyrics           This displays the lyrics for the current playing song
 ```
 
 ## Contributing
