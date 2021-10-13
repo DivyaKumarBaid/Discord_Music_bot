@@ -235,9 +235,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(
             'Give proper values to the command an argument is missing')
-
-keep_alive() #this keeps the bot alive
-
+        
 
 @client.command()
 async def lyrics(ctx):
@@ -249,6 +247,11 @@ async def lyrics(ctx):
     description = f"Lyrics by Genius™️\n```{lyrics}```"
   )
   await ctx.send(embed=embed)
+  
+
+keep_alive() #this keeps the bot alive
+
+
 
 
 
