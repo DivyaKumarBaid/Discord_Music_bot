@@ -237,10 +237,10 @@ async def on_command_error(ctx, error):
             'Give proper values to the command an argument is missing')
         
 
-@client.command()
+@client.command(help = 'This command displays lyrics of the current playing song.')
 async def lyrics(ctx):
   file_name = get_current_song()
-  lyrics = GeniusAPI.get_lyrics(song= file_name)
+  lyrics = GeniusAPI.get_lyrics(song = file_name)
 
   embed = discord.Embed(
     title = f"{file_name}",
