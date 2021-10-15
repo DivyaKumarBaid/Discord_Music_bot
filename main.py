@@ -11,7 +11,9 @@ from replit import db
 from lyrics import *
 
 
-GeniusAPI = GeniusAPI()
+my_secret = os.environ['TOKEN']
+
+GeniusAPI = GeniusAPI() #token
 
 
 
@@ -19,6 +21,7 @@ GeniusAPI = GeniusAPI()
 client = commands.Bot(command_prefix='_')
 
 song_played=[]
+song_name=[]
 
 #before running install pip install pynacl
 #for audio pip install ffmpeg
@@ -30,6 +33,9 @@ async def play_song(ctx, ch, channel, n):
   voice = discord.utils.get(client.voice_clients, guild=ctx.guild) 
   for file in os.listdir("./"):
     if file.endswith(".mp3") and not ch.is_playing() and file not in song_played and not voice == None :
+      song_name.clear()
+      sn=file.split('.mp3')
+      song_name.append(sn[0])
       ch.play(discord.FFmpegPCMAudio(file), after=lambda e: print('done', e))
       text = discord.Embed(
       title= "`Playing`",
@@ -89,6 +95,7 @@ async def play(ctx, channel='General'):
       n=n+1
   if not n==0:
     play_song.start(ctx, ch, channel, n)
+    
   else:
     text = discord.Embed(
     title= "`No Music`",
@@ -115,6 +122,7 @@ async def add(ctx, urllink :str):
   text.set_footer(text= "_help to know commands")
   await ctx.send(embed=text)
 
+
   ydl_opts = {
         'format': 'bestaudio/best',
 
@@ -124,20 +132,24 @@ async def add(ctx, urllink :str):
             'preferredquality': '192',
         }
         ],
-
+        'outtmpl': 'downloaded_song.mp3'
     }
   try:
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+      info = ydl.extract_info(urllink, download=False)
+      video_title = info.get('title', None)
+      
       ydl.download([urllink])
       text = discord.Embed(
       title= "`Song Added`",
       url= urllink,
-      description = "Song is added to the Queue",
+      description = video_title + " is added to the Queue",
       color= 53380,
       )
       text.set_author(name= "Discord_music_bot",
       icon_url= "https://upload.wikimedia.org/wikipedia/commons/2/2a/ITunes_12.2_logo.png")
       text.set_footer(text= "_help to know commands")
+      os.rename('downloaded_song.mp3', video_title + '.mp3')
       await ctx.send(embed=text)
   except :
     await ctx.send("Error")
@@ -235,25 +247,18 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(
             'Give proper values to the command an argument is missing')
-        
 
 @client.command(help = 'This command displays lyrics of the current playing song.')
 async def lyrics(ctx):
-  file_name = get_current_song()
-  lyrics = GeniusAPI.get_lyrics(song = file_name)
+  lyrics = GeniusAPI.get_lyrics(song = song_name[0])
 
   embed = discord.Embed(
-    title = f"{file_name}",
+    title = f"{song_name[0]}",
     description = f"Lyrics by Genius™️\n```{lyrics}```"
   )
   await ctx.send(embed=embed)
-  
-
+        
 keep_alive() #this keeps the bot alive
-
-
-
-
 
 #runs bot
 client.run(os.getenv('TOKEN'))
