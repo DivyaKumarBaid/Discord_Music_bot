@@ -18,7 +18,7 @@ my_secret = os.environ['TOKEN']
 client = commands.Bot(command_prefix='m.',help_command=None)
 song_played=[]
 song_url=[]
-chvc=[]
+ch_vc=[]
 
 #before running install pip install pynacl
 #for audio pip install ffmpeg
@@ -55,7 +55,7 @@ async def play_song(ctx, ch, channel,l):
   
 @client.command(help= "Skip the current song")
 async def skip(ctx):
-  ch=chvc[0]
+  ch=ch_vc[0]
   ch.stop()
 
 #when bot is ready
@@ -98,10 +98,10 @@ async def play(ctx, channel='General'):
   else:
     await ctx.voice_client.disconnect()
   ch = await channel.connect()
-  if(len(chvc)!=0):
-    chvc.pop(0)
-  chvc.append(ch)
-  print(chvc)
+  if(len(ch_vc)!=0):
+    ch_vc.pop(0)
+  ch_vc.append(ch)
+  print(ch_vc)
   await ctx.send(f"Playing on **{channel}** Channel")
   
   #get the number of songs and if none is present it will show up a message
@@ -161,7 +161,7 @@ async def stop(ctx):
 
 
 
-#lists song
+#Songs list
 @client.command(help="This shows the songs present in the directory" ,brief='This command lists all the songs available to play')
 async def songs(ctx):
   l=len(song_url)
@@ -194,7 +194,7 @@ async def clear_playlist(ctx):
   await ctx.send(embed=text)
 
 
-#clear
+#clears msgs
 @client.command(help='This command clears text messages', brief='This command clears given number of messages and by default it clears last 5 text messages')
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
